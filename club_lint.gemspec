@@ -16,8 +16,11 @@ Gem::Specification.new do |spec|
   spec.executables = `git ls-files bin`.split($RS).map { |f| File.basename(f) }
   spec.require_paths = %w[lib]
 
+  spec.add_dependency 'clubhouse_ruby', '0.4'
+
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'rake', '~> 12.3'
   spec.add_development_dependency 'rspec', '~> 3.7'
   spec.add_development_dependency 'rubocop', '~> 0.56'
+  spec.add_development_dependency 'pry', '~> 0.11'
 end

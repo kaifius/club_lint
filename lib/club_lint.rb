@@ -1,7 +1,11 @@
+require_relative 'club_lint/configuration'
+
 module ClubLint
-  class ImLikeHey
-    def self.whats_up
-      puts 'Hello'
-    end
+  def self.config
+    @config ||= ClubLint::Configuration.new
+  end
+
+  def clubhouse
+    @clubhouse ||= ClubhouseRuby::Clubhouse.new(ClubLint.config.clubhouse_api_token)
   end
 end

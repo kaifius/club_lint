@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
+require 'clubhouse_ruby'
 require 'club_lint'
 
-require 'irb'
-IRB.start
+require 'pry'
+
+Pry.start
