@@ -31,7 +31,7 @@ module ClubLint
 
     def load_yaml_config
       unless File.exist?(config_file_path)
-        abort('Please add a ".scrum-lint.yml" file and try again')
+        abort('Please add a ".club_lint.yml" file and try again')
       end
       symbolize_keys(YAML.safe_load(config_file_contents))
     end
@@ -41,7 +41,7 @@ module ClubLint
     end
 
     def config_file_path
-      './.scrum-lint.yml'
+      './.club_lint.yml'
     end
 
     def symbolize_keys(hash)
