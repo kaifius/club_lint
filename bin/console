@@ -6,4 +6,6 @@ require 'club_lint'
 
 require 'pry'
 
+include ClubLint
+
 Pry.start

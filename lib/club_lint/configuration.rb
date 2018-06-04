@@ -8,17 +8,21 @@ module ClubLint
   # with key `clubhouse_api_token`
   class Configuration
 
-    DEFAULT_CONFIGURATION = {}.freeze
+    REQUIRED_CONFIG_KEYS = [:clubhouse_api_token].freeze
 
-    REQUIRED_CONFIGURATION_KEYS = [:clubhouse_api_token].freeze
+    OPTIONAL_CONFIG_KEYS = [
+      :engineering_team_emails,
+      :chore_stories,
+      :sprintly_tasks,
+    ].freeze
 
     CONFIGURATION_KEYS =
-      (DEFAULT_CONFIGURATION.keys + REQUIRED_CONFIGURATION_KEYS).freeze
+      (OPTIONAL_CONFIG_KEYS + REQUIRED_CONFIG_KEYS).freeze
 
     attr_accessor(*CONFIGURATION_KEYS)
 
     def initialize
-      options = DEFAULT_CONFIGURATION.merge(load_yaml_config)
+      options = yaml_config
 
       CONFIGURATION_KEYS.each do |key|
         public_send("#{key}=", options.fetch(key))
@@ -27,14 +31,14 @@ module ClubLint
       raise "invalid options: #{options.keys}" if options.any?
     end
 
-  private
-
-    def load_yaml_config
+    def yaml_config
+      return @yaml_config if @yaml_config
       unless File.exist?(config_file_path)
         abort('Please add a ".club_lint.yml" file and try again')
       end
-      symbolize_keys(YAML.safe_load(config_file_contents))
+      @yaml_config = symbolize_keys(YAML.safe_load(config_file_contents))
     end
+  private
 
     def config_file_contents
       ERB.new(IO.read(config_file_path)).result
