@@ -1,0 +1,108 @@
+################################################################################
+#
+# Top level config
+#
+################################################################################
+
+require:
+  - rubocop-rspec
+
+AllCops:
+  DefaultFormatter: fuubar
+  DisplayCopNames: true
+  TargetRubyVersion: 2.4
+
+################################################################################
+#
+# Rules that depart from rubocop defaults
+#
+################################################################################
+
+AccessModifierIndentation: { EnforcedStyle: outdent }
+CollectionMethods:
+  PreferredMethods:
+    collect: 'map'
+    collect!: 'map!'
+    inject: 'reduce'
+GuardClause: { MinBodyLength: 4 }
+Layout/EmptyLinesAroundClassBody: { EnforcedStyle: empty_lines }
+Layout/EmptyLinesAroundModuleBody: { EnforcedStyle: empty_lines }
+Layout/FirstArrayElementLineBreak: { Enabled: true }
+Layout/FirstHashElementLineBreak: { Enabled: true }
+Layout/FirstMethodArgumentLineBreak: { Enabled: true }
+Layout/FirstMethodParameterLineBreak: { Enabled: true }
+Layout/IndentArray: { EnforcedStyle: consistent }
+Layout/MultilineMethodCallIndentation: { EnforcedStyle: indented }
+Layout/MultilineOperationIndentation: { EnforcedStyle: indented }
+Layout/SpaceBeforeBlockBraces: { EnforcedStyleForEmptyBraces: space }
+Style/EmptyMethod: { EnforcedStyle: expanded }
+Style/MixinGrouping: { EnforcedStyle: grouped }
+Style/OptionHash: { Enabled: true } # Default disabled
+Style/Send: { Enabled: true } # Default disabled
+Style/StringMethods: { Enabled: true } # Default disabled
+Style/TrailingCommaInArguments: { EnforcedStyleForMultiline: consistent_comma }
+Style/TrailingCommaInArrayLiteral: { EnforcedStyleForMultiline: consistent_comma }
+Style/TrailingCommaInHashLiteral: { EnforcedStyleForMultiline: consistent_comma }
+Style/WordArray: { EnforcedStyle: brackets }
+Style/SymbolArray: { EnforcedStyle: brackets }
+
+################################################################################
+#
+# Rules we want to enable
+#
+################################################################################
+
+# Default -> Max: 100
+ClassLength:
+  Max: 225
+# Hopefully we can at least fix those in the reports
+LineLength: { Max: 84 }
+Metrics/AbcSize: { Max: 46 }
+Naming/VariableNumber: { Enabled: false, EnforcedStyle: snake_case }
+ParameterLists: { Max: 8 } # Default -> Max 5
+RSpec/AnyInstance: { Enabled: false }
+RSpec/ExpectInHook: { Enabled: false }
+RSpec/NamedSubject: { Enabled: false }
+RSpec/NestedGroups: { Max: 4 } # Default -> Max: 3
+RSpec/NotToNot: { Enabled: false }
+RSpec/ScatteredLet: { Enabled: false }
+RSpec/VerifiedDoubles: { Enabled: false }
+Style/RegexpLiteral: { Enabled: false }
+
+################################################################################
+#
+# Rules we might want to enable
+#
+################################################################################
+
+Layout/MultilineAssignmentLayout: { Enabled: false }
+Lint/AmbiguousBlockAssociation: { Enabled: false } # Maybe not in specs
+RSpec/ExampleLength: { Enabled: false }
+RSpec/LetSetup: { Enabled: false }
+RSpec/MessageExpectation: { Enabled: false } # Default disabled
+RSpec/MessageSpies: { Enabled: false }
+Style/AutoResourceCleanup: { Enabled: false } # Default disabled
+Style/FormatStringToken: { Enabled: false }
+Style/FrozenStringLiteralComment: { Enabled: false }
+Style/ImplicitRuntimeError: { Enabled: false } # Default disabled
+Naming/UncommunicativeMethodParamName: { Enabled: false } # Default disabled
+
+################################################################################
+#
+# Rules we might not want to enable
+#
+################################################################################
+
+EmptyLinesAroundBlockBody: { Enabled: false }
+RSpec/MultipleExpectations: { Enabled: false }
+Style/CommentedKeyword: { Enabled: false }
+Style/SafeNavigation: { Enabled: false }
+
+################################################################################
+#
+# Rules we don't want to enable
+#
+################################################################################
+
+AsciiComments: { Enabled: false }
+Documentation: { Enabled: false }

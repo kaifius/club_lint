@@ -1,11 +1,20 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
-require 'clubhouse_ruby'
 require 'club_lint'
 
 require 'pry'
 
-include ClubLint
+module ClubLint
 
-Pry.start
+  class Console
+
+    def self.start
+      Pry.start
+    end
+
+  end
+
+end
+
+ClubLint::Console.start

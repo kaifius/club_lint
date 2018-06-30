@@ -2,6 +2,7 @@ require 'yaml'
 require 'erb'
 
 module ClubLint
+
   # `ClubLint::Configuration` loads in the configuration from the
   # `.club_lint.yml` file in the current directory, and merges it into the
   # default configurations. A project must have at minimum a configuration file
@@ -38,6 +39,7 @@ module ClubLint
       end
       @yaml_config = symbolize_keys(YAML.safe_load(config_file_contents))
     end
+
   private
 
     def config_file_contents
@@ -57,4 +59,5 @@ module ClubLint
     end
 
   end
+
 end
