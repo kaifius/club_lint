@@ -5,16 +5,6 @@ require 'club_lint'
 
 require 'pry'
 
-module ClubLint
+include ClubLint
 
-  class Console
-
-    def self.start
-      Pry.start
-    end
-
-  end
-
-end
-
-ClubLint::Console.start
+Pry.start
