@@ -9,16 +9,14 @@ module ClubLint
   # with key `clubhouse_api_token`
   class Configuration
 
-    REQUIRED_CONFIG_KEYS = [:clubhouse_api_token].freeze
-
-    OPTIONAL_CONFIG_KEYS = [
+    CONFIGURATION_KEYS = [
+      :clubhouse_api_token,
+      :project_id,
       :engineering_team_emails,
       :chore_stories,
-      :sprintly_tasks,
+      :sprintly_epics,
+      :sprintly_milestone_description,
     ].freeze
-
-    CONFIGURATION_KEYS =
-      (OPTIONAL_CONFIG_KEYS + REQUIRED_CONFIG_KEYS).freeze
 
     attr_accessor(*CONFIGURATION_KEYS)
 
