@@ -1,5 +1,8 @@
 require_relative 'club_lint/configuration'
 require_relative 'club_lint/sprintly_milestone_creator.rb'
+require_relative 'club_lint/story_copier.rb'
+require_relative 'club_lint/epic_copier.rb'
+
 require 'clubhouse_ruby'
 
 module ClubLint
@@ -26,6 +29,18 @@ module ClubLint
 
     epic_ids_to_delete.each { |epic_id| clubhouse.epics(epic_id).delete }
     clubhouse.milestones(milestone_id).delete
+  end
+
+  def symbolize_keys(hash)
+    hash.each_with_object({}) do |(key, value), result|
+      new_key = key.is_a?(String) ? key.to_sym : key
+      new_value = value.is_a?(Hash) ? symbolize_keys(value) : value
+      result[new_key] = new_value
+    end
+  end
+
+  def slice(hash, keys)
+    hash.select { |key| keys.include? key }
   end
 
 end
