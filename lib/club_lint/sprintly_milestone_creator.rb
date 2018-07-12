@@ -50,7 +50,7 @@ module ClubLint
       end
     end
 
-    def create_chores_stories
+    def create_chores_stories(chores_epic_id)
       eng_emails = config.engineering_team_emails.dup
       config.chore_stories.each do |chore|
         assignee_email = if eng_emails.empty?
