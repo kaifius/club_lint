@@ -68,6 +68,7 @@ module ClubLint
           description: chore['description'],
           estimate: 1,
           owner_ids: [team_email_to_uuid_map[assignee_email]],
+          labels: [{ name: 'chores' }]
         )
       end
     end
