@@ -1,0 +1,42 @@
+# Generate a token in Settings > API Tokens
+clubhouse_api_token: onetwothreefour
+
+# List all projects by running `clubhouse.projects.get` within `bin/console` session
+project_id: 000
+
+# List all members within `bin/console`: `clubhouse.members.get`
+engineering_team_emails:
+  - bob@gravytrain.food
+
+chore_stories:
+  - name: Error(s)
+    description: Pick an error card labled `fixable` and fix it.
+  - name: Update Gems Wk 1
+    description: https://github.com/InformedK12/synchroform/wiki/Update-Gems
+  - name: Update Gems Wk 2
+    description: https://github.com/InformedK12/synchroform/wiki/Update-Gems
+  - name: Update Code Coverage
+    description: |
+      run `rake` and once it's finished open `coverage/simplecov/index.html`. Polish up any missing test coverage.
+
+      NOTE: DO NOT RUN WITH `spring`
+
+      Also, `yarn jest -- --coverage` and open `coverage/lcov-report/index.html` for javascript
+  - name: Update NPM Wk 1
+    description: https://github.com/InformedK12/synchroform/wiki/Updating-NPM-packages
+  - name: Update NPM Wk 2
+    description: https://github.com/InformedK12/synchroform/wiki/Updating-NPM-packages
+
+sprintly_epics:
+  - name: Chores
+    description: |
+      - At the beginning of each sprint, team members are randomly assigned the following chores:
+      - Update NPM - Wk 1
+      - Update NPM - Wk 2
+      - Update Gems - Wk 1
+      - Update Gems - Wk 2
+      - Error(s) - Sprintly
+      - Update Code Coverage - Sprintly
+      - Performance Enhancement(s) - Sprintly
+
+sprintly_milestone_description: ¯\_(ツ)_/¯
