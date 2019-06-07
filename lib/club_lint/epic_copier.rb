@@ -15,11 +15,11 @@ module ClubLint
           :owner_ids,
         ],
       )
-      new_epic_attrs = attrs_to_copy.merge(deep_symbolize_keys(overwrite_attrs)).compact
+      new_epic_attrs = attrs_to_copy.merge(symbolize_keys(overwrite_attrs)).compact
 
       new_epic = symbolize_keys(clubhouse.epics.create(new_epic_attrs)[:content])
       unless story_ids.empty?
-        story_attrs = deep_symbolize_keys(story_overwrite_attrs).merge(epic_id: new_epic[:id])
+        story_attrs = symbolize_keys(story_overwrite_attrs).merge(epic_id: new_epic[:id])
 
         story_ids.each do |story_id|
           StoryCopier.new.call(story_id, overwrite_attrs: story_attrs)
