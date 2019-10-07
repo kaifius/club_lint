@@ -13,6 +13,7 @@ module ClubLint
           :follower_ids,
           :requested_by_id,
           :owner_ids,
+          :milestone_id,
         ],
       )
       new_epic_attrs = attrs_to_copy.merge(symbolize_keys(overwrite_attrs)).compact
